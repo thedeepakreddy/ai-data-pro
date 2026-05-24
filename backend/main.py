@@ -6,13 +6,14 @@ from janitor import DataJanitor # Our Part 2 logic
 
 app = FastAPI()
 
-# Enable CORS so the React Frontend can talk to this API
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=["*"], # Allows all origins (React, etc)
+    allow_credentials=True,
+    allow_methods=["*"], # Allows all methods (POST, GET, etc)
+    allow_headers=["*"], # Allows all headers
 )
+
 
 @app.post("/upload")
 async def upload_data(file: UploadFile = File(...)):
