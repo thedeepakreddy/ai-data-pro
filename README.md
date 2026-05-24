@@ -46,7 +46,43 @@
 
 ## 🚀 Local Setup & Installation
 
-### 1. Clone the Repository
-```bash
-git clone https://github.com/thedeepakreddy/ai-data-pro.git
-cd ai-data-pro
+
+2. Backend Installation
+code
+Bash
+cd backend
+pip install -r requirements.txt
+python main.py
+3. Frontend Installation
+cd frontend
+npm install
+npm run dev
+Open http://localhost:3000 to view the industrial dashboard.
+🌐 Production Deployment
+Backend (Render.com)
+Build Command: pip install -r requirements.txt
+Start Command: uvicorn main:app --host 0.0.0.0 --port $PORT
+Environment Variable: Set GROQ_API_KEY for the AI Storyteller.
+Frontend (Vercel.com)
+Framework Preset: Next.js
+Root Directory: frontend
+Environment Variable: Set NEXT_PUBLIC_API_URL to your live Render URL.
+📂 Project Structure
+code
+Text
+ai-data-pro/
+├── backend/            
+│   ├── main.py         # FastAPI production server
+│   ├── analyzer.py     # Statistical & Descriptive engine
+│   ├── ml_engine.py    # Predictive modeling logic
+│   ├── janitor.py      # Data cleaning logic
+│   └── storyteller.py  # AI strategy generation
+├── frontend/           
+│   ├── app/
+│   │   ├── page.js     // Professional Dashboard UI
+│   │   └── globals.css // Global enterprise styles
+│   └── package.json    // JS Dependencies
+└── README.md
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
+Developed with 🦾 by Deepak Reddy
