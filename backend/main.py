@@ -24,3 +24,22 @@ async def upload_data(file: UploadFile = File(...)):
     clean_df = janitor.clean()
     
     return {"message": "Data Cleaned", "preview": clean_df.head().to_dict()}
+
+from analyzer import DataAnalyzer # New Import
+
+@app.post("/upload")
+async def upload_data(file: UploadFile = File(...)):
+    # ... (same loading logic as above) ...
+    
+    janitor = DataJanitor(df)
+    clean_df = janitor.clean()
+
+    # Part 3: Analyze
+    analyzer = DataAnalyzer(clean_df)
+    analysis_results = analyzer.get_analysis()
+
+    return {
+        "summary": janitor.get_summary(),
+        "analysis": analysis_results, # New analysis data for charts
+        "preview": clean_df.head(10).to_dict(orient="records")
+    }
