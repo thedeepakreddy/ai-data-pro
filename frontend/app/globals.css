@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#f8fafc] text-slate-900 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Professional Thin Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 hover:bg-indigo-400 transition-colors;
+  }
+}
+
+@layer components {
+  /* Flat Enterprise Card Style */
+  .stats-card {
+    @apply bg-white border border-slate-200 rounded-none p-8 transition-all duration-200;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+  }
+  
+  .stats-card:hover {
+    @apply border-indigo-500;
+    box-shadow: 4px 4px 0px rgba(79, 70, 229, 0.1);
+  }
+
+  .btn-flat {
+    @apply rounded-none font-black uppercase tracking-widest text-[10px] transition-all active:scale-95;
+  }
+
+  /* Custom Table Header */
+  .table-header {
+    @apply bg-slate-50 border-b border-slate-200 text-[10px] font-black uppercase tracking-tighter text-slate-400;
+  }
+}
+
+/* Page Entry Animation */
+.fade-up {
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
